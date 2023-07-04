@@ -15,7 +15,7 @@ func CaseNumbers(fileName string) int {
 			break
 		}
 
-		if '0' <= ch && ch <= '9' {
+		if '0' <= ch && ch <= '9' { // atoi
 			digitCnt++
 		}
 		strLen++

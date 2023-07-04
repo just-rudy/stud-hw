@@ -6,13 +6,13 @@ package main
 Если нет цифр         - upper
 */
 
+// ERRORS
+
 import (
 	"fmt"
 	"os"
-	s "github.com/just-rudy/stud-hw/pkg"
+	filesFromDir "github.com/just-rudy/stud-hw/pkg"
 )
-
-
 
 func main() {
 	var dirName string
@@ -23,12 +23,11 @@ func main() {
 	fmt.Scanf("%s", &infoFile)
 
 	// input directory name
-	fmt.Printf("input dir name: ")
+	fmt.Printf("input dir name: ") // arguments, not reading
 	fmt.Scanf("%s", &dirName)
 
-	n := 0
 	allFileNames := ""
-	status := s.GetFileNames(dirName, &allFileNames, &n)
+	status := filesFromDir.GetFileNames(dirName, &allFileNames)
 	if status == 0 {
 		outFile, err := os.Create(infoFile)
 		if err != nil {
