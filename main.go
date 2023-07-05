@@ -15,16 +15,23 @@ import (
 )
 
 func main() {
-	var dirName string
-	var infoFile string
+	// var (
+	// 	dirName string
+	// 	infoFile string
+	// )
+	// reading from arguments directory then info-file
+
+	arguments := os.Args[1:]
+	dirName := arguments[0]
+	infoFile := arguments[1]
 
 	// input output file
-	fmt.Printf("input info-file title: ")
-	fmt.Scanf("%s", &infoFile)
+	//fmt.Printf("input info-file title: ")
+	//fmt.Scanf("%s", &infoFile)
 
 	// input directory name
-	fmt.Printf("input dir name: ") // arguments, not reading
-	fmt.Scanf("%s", &dirName)
+	// fmt.Printf("input dir name: ") // arguments, not reading
+	// fmt.Scanf("%s", &dirName)
 
 	allFileNames := ""
 	status := filesFromDir.GetFileNames(dirName, &allFileNames)
