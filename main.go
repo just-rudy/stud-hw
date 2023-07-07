@@ -6,8 +6,6 @@ package main
 Если нет цифр         - upper
 */
 
-// ERRORS
-
 import (
 	"fmt"
 	"os"
@@ -20,6 +18,11 @@ func main() {
 	// 	infoFile string
 	// )
 	// reading from arguments directory then info-file
+	
+	if len(os.Args) < 3 {
+		fmt.Println("Not enought arguments")
+		return
+	}
 
 	arguments := os.Args[1:]
 	dirName := arguments[0]
@@ -33,9 +36,8 @@ func main() {
 	// fmt.Printf("input dir name: ") // arguments, not reading
 	// fmt.Scanf("%s", &dirName)
 
-	allFileNames := ""
-	status := filesFromDir.GetFileNames(dirName, &allFileNames)
-	if status == 0 {
+	allFileNames, err := filesFromDir.GetFileNames(dirName)
+	if err != "" {
 		outFile, err := os.Create(infoFile)
 		if err != nil {
 			fmt.Println(err)
