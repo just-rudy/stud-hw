@@ -14,7 +14,10 @@ func CaseNumbers(fileName string) int {
 		if ch == '.' {
 			break
 		}
-
+		// _, err := strings.Atoi(ch) 
+		// if err != nil{
+		// 	digitCnt ++
+		// }
 		if '0' <= ch && ch <= '9' { // atoi
 			digitCnt++
 		}
